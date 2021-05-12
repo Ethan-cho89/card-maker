@@ -1,0 +1,23 @@
+@value makerBlack: black;
+@value makerWhite: white;
+@value makerLightGrey: #e8e7e6;
+@value makerLightPink: #ffeae8;
+@value makerGrey: #626262;
+@value makerGreen: #385461;
+@value makerPink: pink;
+@value makerShadow: rgba(217, 217, 217, 1);
+@value makerColorful: linear-gradient(166deg, rgba(237, 193, 211, 1) 0%,rgba(212, 149, 161, 1) 60%, rgba(162, 63, 63, 1) 100%, rgba(127, 188, 242, 1) 100%);
+@value makerWheat: wheat;
+
+/*
+  postCss 문법입니다.
+  @value key: value;  이렇게 하면 됩니다
+  
+  원하는 곳에 가서 
+  @value makerBlack from './commom/color.css';
+  이렇게 입력해주고
+
+  원하는 곳에 바꾸고 싶은 속성 값에
+  background-color : makerBlack 
+  이렇게 가져와서 정해준 이름을 넣어주면 됩니다.
+*/
