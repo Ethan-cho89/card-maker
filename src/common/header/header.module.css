@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  background-color: steelblue;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoImg {
+  width: 3rem;
+  padding-top: 0.4em;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin: 0;
+}
