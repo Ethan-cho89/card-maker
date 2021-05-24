@@ -1,0 +1,58 @@
+@value makerShadow,makerWheat,makerColorful, makerBlack, makerWhite from '../../common/colors.css';
+
+.card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+  border-radius: 1em;
+  padding: 0.2em 0;
+  box-shadow: makerShadow;
+  max-width: 30rem;
+  width: 100%;
+}
+
+.card.dark {
+  background-color: makerBlack;
+  color: makerWhite;
+}
+.card.light {
+  background-color: makerWhite;
+  color: makerBlack;
+}
+.card.colorful {
+  background: makerColorful;
+}
+.avatar {
+  width: 10em;
+  height: 10em;
+  padding: 1em;
+  margin-left: 0.5em;
+  margin-right: 1em;
+  border-radius: 50%;
+}
+.info {
+  width: 100%;
+}
+
+.name,
+.work,
+.email,
+.message {
+  margin: 0;
+  font-size: 0.8rem;
+  margin-bottom: 0.2em;
+  font-size: 1.2rem;
+}
+
+.work {
+  margin-bottom: 1em;
+}
+/* work class 뒤에 붙는 속성값 지정*/
+.work::after {
+  content: '';
+  display: block;
+  width: 90%;
+  height: 2px;
+  background-color: makerWheat;
+  transform: translateY(0.5em);
+}
