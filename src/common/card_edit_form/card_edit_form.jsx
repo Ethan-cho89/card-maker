@@ -3,14 +3,27 @@ import Button from '../button/button';
 import ImageFileInput from '../image_file_input/image_file_input';
 import styles from './card_edit_form.module.css';
 
-const CardEditForm = ({ card }) => {
-  const { name, work, job, email, message, theme, fileName, fileURL } = card;
+const CardEditForm = ({ card, onDelete, onChange }) => {
+  const { id, name, work, job, email, message, theme, fileName, fileURL } =
+    card;
 
-  const onSubmit = () => {};
+  const onSubmit = (event) => {
+    event.preventDefault();
+    onDelete(event.target.id);
+  };
+  const handleChange = (e) => {
+    onChange(e.target.id, e.target.name, e.target.value);
+  };
 
   return (
     <form className={styles.form}>
-      <input className={styles.input} type="text" name="name" value={name} />
+      <input
+        className={styles.input}
+        onChange={handleChange}
+        type="text"
+        name="name"
+        value={name}
+      />
       <input className={styles.input} type="text" name="work" value={work} />
       <select className={styles.select} name="theme" value={theme}>
         <option value="light">Light</option>
@@ -23,7 +36,7 @@ const CardEditForm = ({ card }) => {
       <div className={styles.fileInput}>
         <ImageFileInput />
       </div>
-      <Button name="Delete" onClick={onSubmit} />
+      <Button name="Delete" id={id} onClick={onSubmit} />
     </form>
   );
 };

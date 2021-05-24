@@ -43,6 +43,16 @@ const Maker = ({ authService }) => {
     },
   ]);
 
+  const handleChange = (id, name, value) => {
+    const card_edited = cards.filter((card) => card.id === id);
+    card_edited[name] = value;
+    setCards((prev) => [...prev, card_edited]);
+  };
+
+  const deleteCard = (selectedId) => {
+    setCards((prev) => [prev.filter((card) => card.id !== selectedId)]);
+  };
+  console.log('cards =? ' + cards.length);
   const history = useHistory();
   // 이름 , 직장, 테마선택, 직업, 이메일, 내용
 
@@ -57,11 +67,21 @@ const Maker = ({ authService }) => {
       }
     });
   });
+
+  const addCard = (card) => {
+    const update = [...cards, card];
+    setCards(update);
+  };
   return (
     <section className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
-        <Editor cards={cards} />
+        <Editor
+          cards={cards}
+          addCard={addCard}
+          onDelete={deleteCard}
+          onChange={handleChange}
+        />
         <Preview cards={cards} />
       </div>
       <Footer />
